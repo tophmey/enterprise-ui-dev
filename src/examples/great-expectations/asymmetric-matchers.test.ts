@@ -24,4 +24,9 @@ it('include cool computer scientists by virtue of them being in the club', () =>
   addToCoolKidsClub(createComputerScientist('Ada', 'Lovelace'), people);
   addToCoolKidsClub(createComputerScientist('Annie', 'Easley'), people);
   addToCoolKidsClub(createComputerScientist('Dorothy', 'Vaughn'), people);
+  expect(people).toContainEqual(expect.objectContaining({ "firstName": "Grace"}))
+  expect(people).toContainEqual(expect.objectContaining({ "firstName": "Ada"}))
+  expect(people).toContainEqual(expect.objectContaining({ "firstName": "Annie"}))
+  expect(people).toContainEqual(expect.objectContaining({ "firstName": "Dorothy"}))
+  expect(people).not.toContainEqual(expect.objectContaining({ "firstName": "asdf"}))
 });
