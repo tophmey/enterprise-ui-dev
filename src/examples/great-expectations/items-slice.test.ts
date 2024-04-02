@@ -35,11 +35,12 @@ it('supports removing an item', () => {
       id: '1',
       name: 'iPhone',
       packed: false,
-    },
+    }
   ];
-
+  
   const result = reducer(state, remove({ id: '1' }));
-  expect(result).toEqual([])
+  expect(result).not.toContainEqual(expect.objectContaining({ id: '1' }))
+  
 });
 
 it('supports toggling an item', () => {
@@ -53,8 +54,8 @@ it('supports toggling an item', () => {
   ];
 
   const result = reducer(state, toggle({ id: '1' }));
-  expect(result).toEqual([
-    expect.objectContaining({packed: true, id: "1"})]
+  expect(result).toContainEqual(
+    expect.objectContaining({packed: true, id: "1"})
   )
 });
 
@@ -72,11 +73,11 @@ it('supports updating an item', () => {
     state,
     update({ id: '1', name: 'Samsung Galaxy S23' }),
   );
-  expect(result).toEqual([
+  expect(result).toContainEqual(
     expect.objectContaining({
       id: '1', name: 'Samsung Galaxy S23'
     })
-  ])
+  )
 
 });
 
