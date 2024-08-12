@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build-and-test:
+  unit-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,3 +16,4 @@ jobs:
         uses: actions/setup-node@v4
       - run: npm ci
       - run: npm test
+      - run: npm run build
