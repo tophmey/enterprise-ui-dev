@@ -9,11 +9,17 @@ on:
 jobs:
   unit-test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node
         uses: actions/setup-node@v4
       - run: npm ci
       - run: npm test
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+      - run: npm ci
       - run: npm run build
