@@ -30,7 +30,7 @@ it(
     const { user } = render(<PackingList />);
     const addButton = screen.getByText(/Add New Item/i)
     // const newItemInput = screen.getByLabelText('New Item Name')
-    const newItemInput = document.getElementById('new-item-name')
+    const newItemInput = document.getElementById('new-item-name')!
     expect(addButton).toBeDisabled()
     await user.type(newItemInput,'asdf')
     expect(addButton).not.toBeDisabled()
